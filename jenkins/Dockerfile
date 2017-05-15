@@ -11,3 +11,5 @@ RUN apt-get update && apt-get install -y libsystemd-journal0 jq
 
 COPY env/plugins.txt /usr/share/jenkins/ref/
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/ref/plugins.txt
+
+RUN chcon -Rt svirt_sandbox_file_t /var/jenkins_home
